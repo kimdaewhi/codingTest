@@ -1,0 +1,15 @@
+D:\Project\C#\6. Algorithm\Alghrithm\Alghrithm\bin\Debug\net6.0\Alghrithm.exe
+D:\Project\C#\6. Algorithm\Alghrithm\Alghrithm\bin\Debug\net6.0\Alghrithm.deps.json
+D:\Project\C#\6. Algorithm\Alghrithm\Alghrithm\bin\Debug\net6.0\Alghrithm.runtimeconfig.json
+D:\Project\C#\6. Algorithm\Alghrithm\Alghrithm\bin\Debug\net6.0\Alghrithm.dll
+D:\Project\C#\6. Algorithm\Alghrithm\Alghrithm\bin\Debug\net6.0\Alghrithm.pdb
+D:\Project\C#\6. Algorithm\Alghrithm\Alghrithm\obj\Debug\net6.0\Alghrithm.csproj.AssemblyReference.cache
+D:\Project\C#\6. Algorithm\Alghrithm\Alghrithm\obj\Debug\net6.0\Alghrithm.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\C#\6. Algorithm\Alghrithm\Alghrithm\obj\Debug\net6.0\Alghrithm.AssemblyInfoInputs.cache
+D:\Project\C#\6. Algorithm\Alghrithm\Alghrithm\obj\Debug\net6.0\Alghrithm.AssemblyInfo.cs
+D:\Project\C#\6. Algorithm\Alghrithm\Alghrithm\obj\Debug\net6.0\Alghrithm.csproj.CoreCompileInputs.cache
+D:\Project\C#\6. Algorithm\Alghrithm\Alghrithm\obj\Debug\net6.0\Alghrithm.dll
+D:\Project\C#\6. Algorithm\Alghrithm\Alghrithm\obj\Debug\net6.0\refint\Alghrithm.dll
+D:\Project\C#\6. Algorithm\Alghrithm\Alghrithm\obj\Debug\net6.0\Alghrithm.pdb
+D:\Project\C#\6. Algorithm\Alghrithm\Alghrithm\obj\Debug\net6.0\Alghrithm.genruntimeconfig.cache
+D:\Project\C#\6. Algorithm\Alghrithm\Alghrithm\obj\Debug\net6.0\ref\Alghrithm.dll

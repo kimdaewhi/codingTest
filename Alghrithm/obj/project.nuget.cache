@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "/BlFQ+aknKjwjxaV3O5iB+5d1gvw2fFkJY4/DYSqe74ZYN729oO6+JZy3XFKQeYXwcbg/N/ejbx9z9i+H0OeDg==",
+  "success": true,
+  "projectFilePath": "D:\\Project\\C#\\6. Algorithm\\Alghrithm\\Alghrithm\\Alghrithm.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kimda\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.14\\microsoft.windowsdesktop.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\kimda\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.14\\microsoft.netcore.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\kimda\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.14\\microsoft.aspnetcore.app.ref.6.0.14.nupkg.sha512",
+    "C:\\Users\\kimda\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.14\\microsoft.netcore.app.host.win-x64.6.0.14.nupkg.sha512"
+  ],
+  "logs": []
+}
