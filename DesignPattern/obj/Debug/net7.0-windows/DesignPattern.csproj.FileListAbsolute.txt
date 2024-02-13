@@ -1,0 +1,17 @@
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\obj\Debug\net7.0-windows\DesignPattern.csproj.AssemblyReference.cache
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\obj\Debug\net7.0-windows\DesignPattern.Form1.resources
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\obj\Debug\net7.0-windows\DesignPattern.csproj.GenerateResource.cache
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\obj\Debug\net7.0-windows\DesignPattern.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\obj\Debug\net7.0-windows\DesignPattern.AssemblyInfoInputs.cache
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\obj\Debug\net7.0-windows\DesignPattern.AssemblyInfo.cs
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\obj\Debug\net7.0-windows\DesignPattern.csproj.CoreCompileInputs.cache
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\bin\Debug\net7.0-windows\DesignPattern.exe
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\bin\Debug\net7.0-windows\DesignPattern.deps.json
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\bin\Debug\net7.0-windows\DesignPattern.runtimeconfig.json
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\bin\Debug\net7.0-windows\DesignPattern.dll
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\bin\Debug\net7.0-windows\DesignPattern.pdb
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\obj\Debug\net7.0-windows\DesignPattern.dll
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\obj\Debug\net7.0-windows\refint\DesignPattern.dll
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\obj\Debug\net7.0-windows\DesignPattern.pdb
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\obj\Debug\net7.0-windows\DesignPattern.genruntimeconfig.cache
+D:\Project\C#\6. Algorithm\Alghrithm\DesignPattern\obj\Debug\net7.0-windows\ref\DesignPattern.dll

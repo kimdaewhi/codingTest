@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alghrithm", "Alghrithm\Alghrithm.csproj", "{BA58F5DB-0569-42B0-BA34-396F865BB934}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Alghrithm", "Alghrithm\Alghrithm.csproj", "{BA58F5DB-0569-42B0-BA34-396F865BB934}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPattern", "DesignPattern\DesignPattern.csproj", "{D429E44B-4F75-44A5-B493-343AAACAAD02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{BA58F5DB-0569-42B0-BA34-396F865BB934}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA58F5DB-0569-42B0-BA34-396F865BB934}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA58F5DB-0569-42B0-BA34-396F865BB934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D429E44B-4F75-44A5-B493-343AAACAAD02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D429E44B-4F75-44A5-B493-343AAACAAD02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D429E44B-4F75-44A5-B493-343AAACAAD02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D429E44B-4F75-44A5-B493-343AAACAAD02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
