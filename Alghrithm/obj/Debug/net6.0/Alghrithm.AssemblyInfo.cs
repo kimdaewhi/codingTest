@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Alghrithm")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d934d3ef1dd2b52a5c8883d2d2acff4b57921ca1")]
 [assembly: System.Reflection.AssemblyProductAttribute("Alghrithm")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Alghrithm")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
