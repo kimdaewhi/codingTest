@@ -35,9 +35,10 @@ namespace Algorithm
                             Console.WriteLine("프로그램을 종로합니다.");
                             return;
                         case 1:
-                            CodingTest codingTest= new CodingTest();
+                            CodingTest codingTest = new CodingTest();
                             break;
                         case 2:
+                            AlgorithmTest test = new AlgorithmTest();
                             break;
 
                         default:
