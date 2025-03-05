@@ -54,6 +54,10 @@ namespace Alghrithm
         private void RunAlgoTest(int selected)
         {
             Console.WriteLine("");
+
+            int min = 0;
+            int max = 0;
+
             switch (selected)
             {
                 case 1:
@@ -71,8 +75,8 @@ namespace Alghrithm
                     #region ============================== 2. 중복 탐지 ==============================
                     Console.WriteLine("[중복 탐지 알고리즘]");
                     int size = 100;
-                    int min = 1;
-                    int max = 10;
+                    min = 1;
+                    max = 10;
 
                     int[] quest2 = GenerateRandomArray(size, min, max);
 
@@ -81,9 +85,7 @@ namespace Alghrithm
 
                     break;
                 case 3:
-
                     #region ============================== 3. 순환 탐지 알고리즘(Graph) ==============================
-
                     Console.WriteLine("[순환 탐지 알고리즘]");
                     int nodeCnt = 4;
                     Dictionary<int, List<int>> quest3 = GenerateRandomGraph(nodeCnt, false);
@@ -93,11 +95,14 @@ namespace Alghrithm
 
                     break;
                 case 4:
-
-                    #region ============================== 4. 벽돌 던지기 테스트(탐색 알고리즘) =============================
-
+                    #region ============================== 4. 벽돌 던지기 테스트(탐색 알고리즘) ============================
                     Console.WriteLine("[깨지는 벽돌 실험]");
-                    int quest4 = GenerateBreakingPoint();
+                    min = 1;
+                    max = 100;
+                    int maxTry = 2;     // 최대 시도 횟수(벽돌 깨지면 하나씩 감소)
+                    int quest4 = GenerateBreakingPoint(min, max);
+
+                    int answer4 = FindBreakingPoint(max);
 
                     #endregion ===================================================================
 
@@ -218,9 +223,9 @@ namespace Alghrithm
 
 
         // 4️⃣ 벽돌 깨지는 층 (랜덤 깨지는 층 생성)
-        int GenerateBreakingPoint()
+        int GenerateBreakingPoint(int min, int max)
         {
-            return random.Next(1, 101); // 1~100층 사이에서 랜덤 깨지는 층 선택
+            return random.Next(min, max + 1);
         }
 
         // 5️⃣ 2의 제곱수 판별 (랜덤 숫자 생성)
@@ -394,6 +399,55 @@ namespace Alghrithm
             }
             return visitedCount != graph.Count;
         }
+
+
+        /// <summary>
+        /// 벽돌 2개를 사용하여 최소 횟수로 깨지는 층을 찾는 알고리즘
+        /// </summary>
+        private int FindBreakingPoint(int floors)
+        {
+            int interval = (int)Math.Sqrt(floors); // 점프 간격 (최적화된 값)
+            int previousFloor = 0;  // 이전 층
+            int currentFloor = interval;  // 현재 층
+            int attempts = 0;  // 총 던진 횟수
+
+            // 첫 번째 벽돌로 큰 간격으로 점프하면서 탐색
+            while (currentFloor <= floors)
+            {
+                attempts++;
+                if (IsBreaking(currentFloor)) // 벽돌이 깨지는지 확인
+                    break;  // 깨지면 종료
+
+                previousFloor = currentFloor;
+                currentFloor += interval;  // 점프 간격만큼 증가
+            }
+
+            // 두 번째 벽돌로 선형 탐색 (이전 층부터 하나씩 증가하며 찾기)
+            currentFloor = previousFloor;
+            while (currentFloor <= floors)
+            {
+                attempts++;
+                if (IsBreaking(currentFloor))
+                    return attempts;  // 최종 탐색 횟수 반환
+
+                currentFloor++;
+            }
+
+            return attempts;
+        }
+
+        /// <summary>
+        /// 특정 층에서 벽돌이 깨지는지 확인하는 더미 함수
+        /// </summary>
+        private bool IsBreaking(int floor)
+        {
+            int breakingPoint = 67;  // 예제: 67층에서 깨진다고 가정
+            return floor >= breakingPoint;
+        }
+
+
+
+
 
     }
 }
