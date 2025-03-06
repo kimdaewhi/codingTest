@@ -62,17 +62,20 @@ namespace Alghrithm
             {
                 case 1:
                     #region ============================== 1. R.R Scheduling ==============================
+
                     Console.WriteLine("[Round Robin Scheduling]");
                     int processCnt = 10;
                     int quantum = 3;
                     List<Tuple<int, int>> quest1 = GenerateRandomProcesses(processCnt);
 
                     ProcessByRoundRobin(quantum, quest1);
+
                     #endregion ======================================================================
 
                     break;
                 case 2:
                     #region ============================== 2. 중복 탐지 ==============================
+
                     Console.WriteLine("[중복 탐지 알고리즘]");
                     int size = 100;
                     min = 1;
@@ -81,50 +84,55 @@ namespace Alghrithm
                     int[] quest2 = GenerateRandomArray(size, min, max);
 
                     int answer2 = SearchDuplicate(quest2);
+
                     #endregion =====================================================================
 
                     break;
                 case 3:
                     #region ============================== 3. 순환 탐지 알고리즘(Graph) ==============================
+
                     Console.WriteLine("[순환 탐지 알고리즘]");
                     int nodeCnt = 4;
                     Dictionary<int, List<int>> quest3 = GenerateRandomGraph(nodeCnt, false);
 
                     bool answer3 = CheckWithDFS(quest3);
+
                     #endregion ===============================================================================
 
                     break;
                 case 4:
                     #region ============================== 4. 벽돌 던지기 테스트(탐색 알고리즘) ============================
+
                     Console.WriteLine("[깨지는 벽돌 실험]");
                     min = 1;
                     max = 100;
-                    int maxTry = 2;     // 최대 시도 횟수(벽돌 깨지면 하나씩 감소)
+                    int maxTry = 2; // 최대 시도 횟수(벽돌 깨지면 하나씩 감소)
                     int quest4 = GenerateBreakingPoint(min, max);
 
-                    int answer4 = FindBreakingPoint(max);
+                    int answer4 = FindBreakingPoint(min, max, quest4, maxTry);
 
                     #endregion ===================================================================
 
                     break;
                 case 5:
-
                     #region ============================== 5.제곱수 판별 ==============================
 
                     Console.WriteLine("[제곱수 판별]");
                     int quest5 = GenerateRandomNumber();
+
+                    bool answer5 = CheckSqrOfTwo(quest5);
 
                     #endregion ==========================================================================
 
                     break;
 
                 case 6:
-
                     #region ====================== 괄호 여닫이(?) 체크 ======================
 
                     Console.WriteLine("[괄호 여닫이(?) 체크]");
                     string quest6 = GenerateRandomBrackets(10);
 
+                    bool answer6 = CheckParentheses(quest6);
                     #endregion ========================================================
 
                     break;
@@ -213,7 +221,7 @@ namespace Alghrithm
             if (bCycle)
             {
                 graph[nodeCount].Clear(); // 마지막 노드의 기존 간선 제거
-                graph[nodeCount].Add(1);  // 마지막 노드를 첫 번째 노드와 연결
+                graph[nodeCount].Add(1); // 마지막 노드를 첫 번째 노드와 연결
             }
 
             return graph;
@@ -260,7 +268,7 @@ namespace Alghrithm
 
             while (queue.Count > 0) // A : Loop 실행
             {
-                var process = queue.Dequeue();      // O(1) (큐 연산)
+                var process = queue.Dequeue(); // O(1) (큐 연산)
                 int pid = process.Item1;
                 int burst = process.Item2;
                 // Console.WriteLine($"PID {pid} 실행 중...");
@@ -278,6 +286,7 @@ namespace Alghrithm
                     // Console.WriteLine($"PID {pid} 종료. 소요 시간 : {time}");
                 }
             }
+
             Console.WriteLine($"전체 소요 시간 : {total}");
         }
 
@@ -285,7 +294,7 @@ namespace Alghrithm
         private int SearchDuplicate(int[] arr)
         {
             Dictionary<int, int> count = new Dictionary<int, int>();
-            foreach (var num in arr)    // O(n)
+            foreach (var num in arr) // O(n)
             {
                 if (count.ContainsKey(num))
                 {
@@ -306,33 +315,37 @@ namespace Alghrithm
         // DFS(깊이 우선 탐색)로 순환 탐지
         private bool CheckWithDFS(Dictionary<int, List<int>> quest3) // O(V+E)
         {
-            HashSet<int> visited = new HashSet<int>();      // 방문 노드 저장
-            HashSet<int> recStack = new HashSet<int>();     // 현재 탐색중인 경로 저장(재귀 스택 역할)
-            foreach (var node in quest3.Keys)           // 그래프를 순회하며 순환 탐지
+            HashSet<int> visited = new HashSet<int>(); // 방문 노드 저장
+            HashSet<int> recStack = new HashSet<int>(); // 현재 탐색중인 경로 저장(재귀 스택 역할)
+            foreach (var node in quest3.Keys) // 그래프를 순회하며 순환 탐지
             {
                 if (IsCyclicUtil(node, visited, recStack, quest3))
                 {
-                    return true;        // 순환 발견되면 true 반환
+                    return true; // 순환 발견되면 true 반환
                 }
             }
+
             return false;
         }
 
         // 현재 노드의 방문 여부와 재귀 스택(recStack) 여부를 확인하여 순환 여부를 판단
-        private bool IsCyclicUtil(int node, HashSet<int> visited, HashSet<int> recStack, Dictionary<int, List<int>> graph)
+        private bool IsCyclicUtil(int node, HashSet<int> visited, HashSet<int> recStack,
+            Dictionary<int, List<int>> graph)
         {
             // 현재 노드가 이미 재귀 스택에 있으면 순환
             if (recStack.Contains(node))
             {
                 return true;
             }
+
             // 현재 노드가 이미 방문한 노드면 순환 아님
             if (visited.Contains(node))
             {
                 return false;
             }
-            visited.Add(node);      // 방문 처리
-            recStack.Add(node);     // 재귀 스택에 추가
+
+            visited.Add(node); // 방문 처리
+            recStack.Add(node); // 재귀 스택에 추가
 
             // 현재 노드의 이웃 노드를 순회하며 순환 여부 확인
             foreach (var neighbor in graph[node])
@@ -342,6 +355,7 @@ namespace Alghrithm
                     return true;
                 }
             }
+
             // 현재 노드의 이웃 노드를 모두 순회했는데 순환을 찾지 못한 경우
             recStack.Remove(node);
             return false;
@@ -355,8 +369,8 @@ namespace Alghrithm
         /// <returns></returns>
         private bool CheckWithBFS(Dictionary<int, List<int>> graph) // O(V+E)
         {
-            Dictionary<int, int> inDegree = new Dictionary<int, int>();         // 각 노드의 진입 차수
-            Queue<int> queue = new Queue<int>();                                // BFS 탐색을 위한 큐
+            Dictionary<int, int> inDegree = new Dictionary<int, int>(); // 각 노드의 진입 차수
+            Queue<int> queue = new Queue<int>(); // BFS 탐색을 위한 큐
 
             // 진입 차수 초기화
             foreach (var node in graph.Keys)
@@ -382,7 +396,7 @@ namespace Alghrithm
                 }
             }
 
-            int visitedCount = 0;   // 방문한 노드 수
+            int visitedCount = 0; // 방문한 노드 수
 
             while (queue.Count > 0)
             {
@@ -397,38 +411,50 @@ namespace Alghrithm
                     }
                 }
             }
+
             return visitedCount != graph.Count;
         }
 
 
         /// <summary>
-        /// 벽돌 2개를 사용하여 최소 횟수로 깨지는 층을 찾는 알고리즘
+        /// Jump Search 알고리즘을 이용하여 벽돌 깨지는 층 찾기
+        /// Jump Search: O(sqrt(N))
+        /// 점프 탐색 알고리즘이란? 블록 크기만큼 점프하며 탐색하는 알고리즘
         /// </summary>
-        private int FindBreakingPoint(int floors)
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <param name="target"></param>
+        /// <param name="maxTry"></param>
+        /// <returns></returns>
+        private int FindBreakingPoint(int min, int max, int target, int maxTry)
         {
-            int interval = (int)Math.Sqrt(floors); // 점프 간격 (최적화된 값)
-            int previousFloor = 0;  // 이전 층
-            int currentFloor = interval;  // 현재 층
-            int attempts = 0;  // 총 던진 횟수
+            int interval = (int)Math.Sqrt(max); // 점프 간격 (10층 단위)
+            int previousFloor = min;
+            int currentFloor = interval;
+            int attempts = 0;
+            int bricksLeft = maxTry; // 남은 벽돌 개수
 
-            // 첫 번째 벽돌로 큰 간격으로 점프하면서 탐색
-            while (currentFloor <= floors)
+            // 첫 번째 벽돌: sqrt(N) 간격으로 점프하며 깨지는 층 찾기
+            while (currentFloor <= max && bricksLeft > 1)
             {
                 attempts++;
-                if (IsBreaking(currentFloor)) // 벽돌이 깨지는지 확인
-                    break;  // 깨지면 종료
+                if (IsBreaking(currentFloor, target))
+                {
+                    bricksLeft--; // 벽돌 깨짐
+                    break;
+                }
 
                 previousFloor = currentFloor;
-                currentFloor += interval;  // 점프 간격만큼 증가
+                currentFloor += interval;
             }
 
-            // 두 번째 벽돌로 선형 탐색 (이전 층부터 하나씩 증가하며 찾기)
+            // 두 번째 벽돌: 깨지기 직전 층부터 선형 탐색
             currentFloor = previousFloor;
-            while (currentFloor <= floors)
+            while (currentFloor <= max)
             {
                 attempts++;
-                if (IsBreaking(currentFloor))
-                    return attempts;  // 최종 탐색 횟수 반환
+                if (IsBreaking(currentFloor, target))
+                    return attempts;
 
                 currentFloor++;
             }
@@ -439,14 +465,57 @@ namespace Alghrithm
         /// <summary>
         /// 특정 층에서 벽돌이 깨지는지 확인하는 더미 함수
         /// </summary>
-        private bool IsBreaking(int floor)
+        private bool IsBreaking(int floor, int target)
         {
-            int breakingPoint = 67;  // 예제: 67층에서 깨진다고 가정
-            return floor >= breakingPoint;
+            return floor >= target;
         }
 
 
+        /// <summary>
+        /// 주어진 숫자가 2의 제곱수인지 판별하는 함수
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        private bool CheckSqrOfTwo(int num) // O(1)
+        {
+            // 2의 제곱수는 이진수로 표현했을 때 1이 하나만 존재함
+            return num > 0 && (num & (num - 1)) == 0;
+        }
 
+
+        /// <summary>
+        /// 주어진 문자열이 괄호 여닫이가 올바른지 판별하는 함수
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        private bool CheckParentheses(string str) // O(n)
+        {
+            Stack<char> stack = new Stack<char>();
+            foreach (char ch in str)
+            {
+                // 여는 괄호면 스택에 추가
+                if (ch == '(' || ch == '{' || ch == '[')
+                {
+                    stack.Push(ch);
+                }
+                // 닫는 괄호면 스택에서 Pop하여 짝이 맞는지 확인
+                else if (ch == ')' && (stack.Count == 0 || stack.Pop() != '('))
+                {
+                    return false;
+                }
+                else if (ch == '}' && (stack.Count == 0 || stack.Pop() != '{'))
+                {
+                    return false;
+                }
+                else if (ch == ']' && (stack.Count == 0 || stack.Pop() != '['))
+                {
+                    return false;
+                }
+            }
+
+            // 스택이 비어있으면 모든 괄호가 올바르게 닫힘
+            return stack.Count == 0;
+        }
 
 
     }
