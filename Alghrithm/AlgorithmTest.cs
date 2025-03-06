@@ -259,7 +259,12 @@ namespace Alghrithm
         #endregion ============================================================================================================
 
 
-        // Tuple의 첫번째 요소는 PID(순서), 두번째 요소는 총 소요 시간
+        /// <summary>
+        /// 라운드 로빈(Round Robin) 스케줄링 알고리즘 구현
+        /// 퀀텀 시간만큼 프로세스를 실행하고 남은 시간이 있으면 다시 큐에 추가하는 방식
+        /// </summary>
+        /// <param name="quantum">퀀텀 시간</param>
+        /// <param name="processes">프로세스 큐</param>
         private void ProcessByRoundRobin(int quantum, List<Tuple<int, int>> processes)
         {
             Queue<Tuple<int, int>> queue = new Queue<Tuple<int, int>>(processes);
@@ -291,6 +296,11 @@ namespace Alghrithm
         }
 
 
+        /// <summary>
+        /// 중복된 숫자 찾기
+        /// </summary>
+        /// <param name="arr">길이가 n인 배열</param>
+        /// <returns>가장 많이 중복된 숫자</returns>
         private int SearchDuplicate(int[] arr)
         {
             Dictionary<int, int> count = new Dictionary<int, int>();
@@ -311,8 +321,11 @@ namespace Alghrithm
         }
 
 
-
-        // DFS(깊이 우선 탐색)로 순환 탐지
+        /// <summary>
+        /// DFS(깊이 우선 탐색)로 순환 탐지
+        /// </summary>
+        /// <param name="quest3">그래프</param>
+        /// <returns>순환 여부</returns>
         private bool CheckWithDFS(Dictionary<int, List<int>> quest3) // O(V+E)
         {
             HashSet<int> visited = new HashSet<int>(); // 방문 노드 저장
@@ -328,7 +341,15 @@ namespace Alghrithm
             return false;
         }
 
-        // 현재 노드의 방문 여부와 재귀 스택(recStack) 여부를 확인하여 순환 여부를 판단
+
+        /// <summary>
+        /// DFS 탐색 함수
+        /// </summary>
+        /// <param name="node">현재 노드</param>
+        /// <param name="visited">방문 노드</param>
+        /// <param name="recStack">재귀 스택</param>
+        /// <param name="graph">그래프</param>
+        /// <returns>순환 여부</returns>
         private bool IsCyclicUtil(int node, HashSet<int> visited, HashSet<int> recStack,
             Dictionary<int, List<int>> graph)
         {
@@ -364,9 +385,11 @@ namespace Alghrithm
 
         /// <summary>
         /// BFS(위상 정렬)로 순환 탐지
+        /// 진입 차수가 0인 노드를 큐에 추가하며 BFS 탐색
+        /// 이미 탐색한 노드여도 진입 차수가 0이면 큐에 추가(순환이라고 판단할 수 없음)
         /// </summary>
-        /// <param name="quest3"></param>
-        /// <returns></returns>
+        /// <param name="graph">그래프</param>
+        /// <returns>순환여부</returns>
         private bool CheckWithBFS(Dictionary<int, List<int>> graph) // O(V+E)
         {
             Dictionary<int, int> inDegree = new Dictionary<int, int>(); // 각 노드의 진입 차수
@@ -421,11 +444,11 @@ namespace Alghrithm
         /// Jump Search: O(sqrt(N))
         /// 점프 탐색 알고리즘이란? 블록 크기만큼 점프하며 탐색하는 알고리즘
         /// </summary>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
-        /// <param name="target"></param>
-        /// <param name="maxTry"></param>
-        /// <returns></returns>
+        /// <param name="min">최대 높이</param>
+        /// <param name="max">최소 높이</param>
+        /// <param name="target">깨지는 층</param>
+        /// <param name="maxTry">최대 시도 가능 횟수</param>
+        /// <returns>최소 실험 횟수</returns>
         private int FindBreakingPoint(int min, int max, int target, int maxTry)
         {
             int interval = (int)Math.Sqrt(max); // 점프 간격 (10층 단위)
@@ -462,9 +485,11 @@ namespace Alghrithm
             return attempts;
         }
 
+
         /// <summary>
         /// 특정 층에서 벽돌이 깨지는지 확인하는 더미 함수
         /// </summary>
+        /// <returns>벽돌이 깨지면 true, 아니면 false</returns>
         private bool IsBreaking(int floor, int target)
         {
             return floor >= target;
@@ -474,8 +499,8 @@ namespace Alghrithm
         /// <summary>
         /// 주어진 숫자가 2의 제곱수인지 판별하는 함수
         /// </summary>
-        /// <param name="num"></param>
-        /// <returns></returns>
+        /// <param name="num">판별할 숫자</param>
+        /// <returns>2의 제곱수이면 true, 아니면 false</returns>
         private bool CheckSqrOfTwo(int num) // O(1)
         {
             // 2의 제곱수는 이진수로 표현했을 때 1이 하나만 존재함
@@ -485,9 +510,10 @@ namespace Alghrithm
 
         /// <summary>
         /// 주어진 문자열이 괄호 여닫이가 올바른지 판별하는 함수
+        /// Stack을 이용하여 여는 괄호를 만나면 스택에 추가하고 닫는 괄호를 만나면 스택에서 Pop하여 짝이 맞는지 확인
         /// </summary>
-        /// <param name="str"></param>
-        /// <returns></returns>
+        /// <param name="str">괄호 문자열</param>
+        /// <returns>괄호 여닫이가 올바르면 true, 아니면 false</returns>
         private bool CheckParentheses(string str) // O(n)
         {
             Stack<char> stack = new Stack<char>();
